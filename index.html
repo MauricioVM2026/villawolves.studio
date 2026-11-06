@@ -328,8 +328,14 @@
     .navegador-barra { display: flex; align-items: center; gap: 6px; padding: 12px 14px; }
     .navegador-barra i { width: 9px; height: 9px; border-radius: 50%; background: var(--gris); opacity: .55; }
     .navegador-url { margin-left: 10px; flex: 1; font-size: .75rem; color: var(--crema-suave); background: rgba(141, 153, 174, .15); border-radius: 6px; padding: 5px 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .navegador img { width: calc(100% - 20px); margin: 0 10px; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; border-radius: 8px; height: auto; transition: scale .6s var(--salida); }
-    .trabajo:hover .navegador img { scale: 1.015; }
+    /* La captura va sobre un respaldo con el nombre del sitio, por si la imagen no carga */
+    .captura {
+      position: relative; margin: 0 10px; aspect-ratio: 16 / 10; border-radius: 8px; overflow: hidden;
+      background: var(--crema); display: grid; place-items: center; text-align: center; padding: 20px;
+    }
+    .captura-respaldo { font: italic 400 clamp(1.5rem, 4vw, 2.25rem)/1.15 var(--serif); color: var(--carbon); }
+    .captura img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: scale .6s var(--salida); }
+    .trabajo:hover .captura img { scale: 1.015; }
     .trabajo-info { padding: 20px 22px 24px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
     .trabajo-info h3 { font-size: 1.3125rem; }
     .trabajo-info p { font-size: .9375rem; color: var(--texto-suave); margin-top: 4px; }
@@ -639,7 +645,10 @@
           <a class="trabajo" href="https://monicamartinezartgallery.com" target="_blank" rel="noopener">
             <div class="navegador">
               <div class="navegador-barra" aria-hidden="true"><i></i><i></i><i></i><span class="navegador-url">monicamartinezartgallery.com</span></div>
-              <img src="trabajos/monica-martinez.jpg" alt="Página de inicio de Monica Martinez Art Gallery, con obras de sus artistas" width="800" height="500" loading="lazy" decoding="async">
+              <div class="captura">
+                <span class="captura-respaldo" aria-hidden="true">Monica Martinez<br>Art Gallery</span>
+                <img src="monica-martinez.jpg" alt="Página de inicio de Monica Martinez Art Gallery, con obras de sus artistas" width="800" height="500" loading="lazy" decoding="async" onerror="this.remove()">
+              </div>
             </div>
             <div class="trabajo-info">
               <div>
