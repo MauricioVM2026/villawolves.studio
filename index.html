@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Villawolves Studio · Páginas web y reseñas de Google por WhatsApp</title>
+  <meta name="description" content="Hacemos páginas web a la medida para negocios y automatizamos tus reseñas de Google: después de cada servicio, tu cliente recibe un mensaje por WhatsApp pidiéndole su reseña.">
+  <link rel="canonical" href="https://villawolves.studio/">
+  <meta name="theme-color" content="#1E2328">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_MX">
+  <meta property="og:site_name" content="Villawolves Studio">
+  <meta property="og:url" content="https://villawolves.studio/">
+  <meta property="og:title" content="Villawolves Studio · Páginas web y reseñas de Google">
+  <meta property="og:description" content="Páginas web que venden, y reseñas que llegan solas. Diseño a la medida y reseñas de Google por WhatsApp para tu negocio.">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --crema: #F2EDE4;
+      --carbon: #1E2328;
+      --gris: #8D99AE;
+      --cobre: #C8773A;
+      --cobre-osc: #8F4F1F;
+      --texto-suave: rgba(30, 35, 40, .76);
+      --crema-suave: rgba(242, 237, 228, .82);
+      --linea: rgba(141, 153, 174, .45);
+      --radio: 18px;
+      --serif: "Fraunces", Georgia, serif;
+      --sans: "Inter", system-ui, -apple-system, sans-serif;
+      --ancho: 1120px;
+      --salida: cubic-bezier(.16, 1, .3, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html {
+      scroll-behavior: smooth; scroll-padding-top: 76px; -webkit-text-size-adjust: 100%;
+      scrollbar-color: var(--gris) var(--crema);
+    }
+    body {
+      margin: 0;
+      background: var(--crema);
+      color: var(--carbon);
+      font: 400 1.0625rem/1.6 var(--sans);
+      -webkit-font-smoothing: antialiased;
+      caret-color: var(--cobre);
+    }
+    ::selection { background: var(--cobre); color: var(--carbon); }
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; text-underline-offset: .2em; text-decoration-thickness: 1px; }
+    h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.1; margin: 0; letter-spacing: -.015em; text-wrap: balance; }
+    p { margin: 0; text-wrap: pretty; }
+    ul, ol { margin: 0; padding: 0; list-style: none; }
+    :focus-visible { outline: 3px solid var(--cobre-osc); outline-offset: 3px; border-radius: 6px; }
+    .oscuro :focus-visible { outline-color: var(--cobre); }
+
+    .contenedor { width: 100%; max-width: var(--ancho); margin: 0 auto; padding: 0 20px; }
+    .seccion { padding: 96px 0; }
+    .titulo { font-size: clamp(2.125rem, 7vw, 3.25rem); max-width: 16ch; }
+    .intro { margin-top: 18px; color: var(--texto-suave); max-width: 50ch; font-size: 1.125rem; }
+    .oscuro { background: var(--carbon); color: var(--crema); }
+    .oscuro .intro { color: var(--gris); }
+
+    /* Botones */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      min-height: 52px; padding: 0 26px;
+      border-radius: 999px; border: 0;
+      font: 600 1rem/1 var(--sans); text-decoration: none; cursor: pointer;
+      background: var(--cobre); color: var(--carbon);
+      transition: background .2s, color .2s, box-shadow .2s, transform .2s var(--salida);
+    }
+    .btn:hover { background: var(--cobre-osc); color: var(--crema); }
+    .btn:active { transform: scale(.97); }
+    .btn svg { width: 20px; height: 20px; flex: none; }
+    .btn-grande { min-height: 60px; padding: 0 34px; font-size: 1.0625rem; }
+    .btn-borde { background: transparent; color: var(--carbon); box-shadow: inset 0 0 0 1.5px var(--carbon); }
+    .btn-borde:hover { background: var(--carbon); color: var(--crema); }
+    .oscuro .btn-borde { color: var(--crema); box-shadow: inset 0 0 0 1.5px var(--gris); }
+    .oscuro .btn-borde:hover { background: var(--crema); color: var(--carbon); box-shadow: inset 0 0 0 1.5px var(--crema); }
+
+    /* Menú */
+    .header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(242, 237, 228, .94);
+      -webkit-backdrop-filter: saturate(1.2) blur(10px); backdrop-filter: saturate(1.2) blur(10px);
+      border-bottom: 1px solid transparent;
+      transition: border-color .3s;
+    }
+    .header.con-sombra { border-bottom-color: var(--linea); }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 66px; }
+    .marca { display: flex; align-items: center; gap: 10px; text-decoration: none; font: 600 1.125rem/1 var(--serif); }
+    .marca-logo { width: 32px; height: 32px; border-radius: 9px; }
+    .nav-links { display: none; }
+    .nav-links a:not(.btn) { text-decoration: none; font-size: .9375rem; font-weight: 500; padding: 6px 0; background: linear-gradient(var(--cobre), var(--cobre)) 0 100% / 0 1.5px no-repeat; transition: background-size .3s var(--salida), color .2s; }
+    .nav-links a:not(.btn):hover { color: var(--cobre-osc); background-size: 100% 1.5px; }
+    .nav-btn { min-height: 42px; padding: 0 18px; font-size: .9375rem; }
+
+    .hamburguesa {
+      width: 46px; height: 46px; margin-right: -8px;
+      display: grid; place-items: center;
+      background: none; border: 0; cursor: pointer; color: var(--carbon);
+    }
+    .hamburguesa span, .hamburguesa span::before, .hamburguesa span::after {
+      display: block; width: 22px; height: 2px; border-radius: 2px; background: currentColor;
+      transition: transform .3s var(--salida), background .2s; position: relative;
+    }
+    .hamburguesa span::before, .hamburguesa span::after { content: ""; position: absolute; left: 0; }
+    .hamburguesa span::before { top: -7px; }
+    .hamburguesa span::after { top: 7px; }
+    .hamburguesa[aria-expanded="true"] span { background: transparent; }
+    .hamburguesa[aria-expanded="true"] span::before { transform: translateY(7px) rotate(45deg); }
+    .hamburguesa[aria-expanded="true"] span::after { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Fondo oscurecido detrás del menú; al tocarlo se cierra */
+    .menu-fondo {
+      position: fixed; inset: 66px 0 0 0; z-index: 48;
+      background: rgba(30, 35, 40, .55);
+      opacity: 0; visibility: hidden;
+      transition: opacity .3s, visibility .3s;
+    }
+    .menu-fondo.abierto { opacity: 1; visibility: visible; }
+    .menu-movil {
+      position: fixed; top: 66px; left: 0; right: 0; z-index: 49;
+      max-height: calc(100dvh - 66px);
+      background: var(--crema);
+      border-radius: 0 0 24px 24px;
+      padding: 8px 20px 28px; overflow-y: auto;
+      display: flex; flex-direction: column;
+      opacity: 0; visibility: hidden;
+      clip-path: inset(0 0 100% 0);
+      transition: clip-path .45s var(--salida), opacity .3s, visibility .45s;
+    }
+    .menu-movil.abierto { opacity: 1; visibility: visible; clip-path: inset(0 0 0 0); }
+    .menu-movil a:not(.btn) {
+      font: 500 1.75rem/1 var(--serif); text-decoration: none;
+      padding: 18px 0; border-bottom: 1px solid var(--linea);
+    }
+    .menu-movil .btn { margin-top: 32px; }
+
+    @media (min-width: 960px) {
+      .nav-links { display: flex; align-items: center; gap: 26px; }
+      .hamburguesa, .menu-movil, .menu-fondo { display: none; }
+    }
+
+    /* Hero */
+    .hero { padding: 48px 0 88px; overflow: hidden; }
+    .hero-grid { display: grid; gap: 64px; align-items: center; }
+    .hero h1 { font-size: clamp(2.625rem, 11vw, 5rem); max-width: 12ch; letter-spacing: -.025em; line-height: 1.02; }
+    .hero h1 em { font-style: italic; font-weight: 400; color: var(--cobre-osc); }
+    .subrayar { position: relative; white-space: nowrap; }
+    .subrayado { position: absolute; left: -2%; width: 104%; bottom: -.1em; height: .3em; color: var(--cobre); overflow: visible; }
+    .subrayado path { stroke-dasharray: 220; stroke-dashoffset: 0; }
+    .hero .intro { margin-top: 26px; }
+    .hero-acciones { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-acciones .btn { width: 100%; }
+
+    /* Teléfono con mensaje de ejemplo */
+    .telefono {
+      width: min(100%, 320px); margin: 0 auto;
+      background: var(--carbon); border-radius: 38px; padding: 11px;
+      box-shadow: 0 2px 4px rgba(30, 35, 40, .12), 0 28px 50px -24px rgba(30, 35, 40, .55);
+      rotate: 2deg;
+    }
+    .pantalla { background: var(--crema); border-radius: 28px; overflow: hidden; }
+    .chat-top { background: var(--carbon); color: var(--crema); padding: 14px 18px 16px; display: flex; align-items: center; gap: 10px; font-size: .875rem; font-weight: 600; }
+    .chat-avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--cobre); display: grid; place-items: center; color: var(--carbon); font: 600 .9375rem/1 var(--serif); }
+    .chat-top small { display: block; font-weight: 400; color: var(--gris); font-size: .75rem; }
+    .chat { padding: 18px 14px 8px; display: flex; flex-direction: column; gap: 10px; min-height: 236px; }
+    .burbuja {
+      background: var(--crema);
+      border: 1px solid var(--linea);
+      border-radius: 16px 16px 16px 4px;
+      padding: 10px 13px; font-size: .875rem; line-height: 1.45; max-width: 90%;
+      box-shadow: 0 1px 2px rgba(30, 35, 40, .06);
+    }
+    .burbuja b { font-weight: 600; }
+    .burbuja-link {
+      margin-top: 9px; display: flex; align-items: center; justify-content: center; gap: 6px;
+      background: var(--cobre); color: var(--carbon); border-radius: 10px; padding: 9px; font-weight: 600; font-size: .8125rem;
+    }
+    .burbuja-link svg { width: 14px; height: 14px; }
+    .burbuja-hora { display: block; text-align: right; font-size: .6875rem; color: var(--texto-suave); margin-top: 4px; font-variant-numeric: tabular-nums; }
+    .chat-pie { text-align: center; font: italic 400 .8125rem/1.35 var(--serif); color: var(--texto-suave); padding: 6px 18px 18px; margin: 0; }
+
+    @media (min-width: 760px) {
+      .hero { padding: 80px 0 120px; }
+      .hero-grid { grid-template-columns: 1.3fr 1fr; }
+      .hero-acciones .btn { width: auto; }
+    }
+
+    /* Momento de entrada del hero: título, subrayado y mensajes */
+    .js .entra { opacity: 0; translate: 0 18px; animation: entrar .9s var(--salida) forwards; animation-delay: var(--d, 0s); }
+    .js .subrayado path { stroke-dashoffset: 220; animation: trazo 1s var(--salida) .7s forwards; }
+    .js .burbuja { opacity: 0; translate: 0 10px; scale: .96; transform-origin: 0 100%; animation: entrar .6s var(--salida) forwards; }
+    .js .burbuja:nth-child(1) { animation-delay: .9s; }
+    .js .burbuja:nth-child(2) { animation-delay: 2.1s; }
+    .escribiendo { display: none; }
+    .js .escribiendo {
+      display: inline-flex; gap: 4px; align-self: flex-start; padding: 12px 14px;
+      border: 1px solid var(--linea); border-radius: 16px 16px 16px 4px;
+      opacity: 0; animation: aparece-y-va 1s ease 1.2s forwards;
+      position: absolute;
+    }
+    .escribiendo i { width: 6px; height: 6px; border-radius: 50%; background: var(--gris); animation: punto .5s ease-in-out 1.2s 2; }
+    .escribiendo i:nth-child(2) { animation-delay: 1.35s; }
+    .escribiendo i:nth-child(3) { animation-delay: 1.5s; }
+    .chat { position: relative; }
+    @keyframes entrar { to { opacity: 1; translate: 0 0; scale: 1; } }
+    @keyframes trazo { to { stroke-dashoffset: 0; } }
+    @keyframes punto { 50% { translate: 0 -3px; opacity: .5; } }
+    @keyframes aparece-y-va { 0% { opacity: 0; } 15%, 80% { opacity: 1; } 100% { opacity: 0; } }
+    .js .escribiendo { top: auto; bottom: 8px; left: 14px; }
+
+    /* Servicios */
+    .servicios-rejilla { display: grid; margin-top: 52px; border-top: 1.5px solid var(--carbon); }
+    .servicio { padding: 36px 0 40px; display: grid; gap: 14px; align-content: start; }
+    .servicio + .servicio { border-top: 1px solid var(--linea); }
+    .servicio-icono { width: 30px; height: 30px; color: var(--cobre-osc); }
+    .servicio h3 { font-size: clamp(1.75rem, 5vw, 2.25rem); max-width: 14ch; }
+    .servicio p { color: var(--texto-suave); max-width: 42ch; }
+    @media (min-width: 760px) {
+      .servicios-rejilla { grid-template-columns: 1fr 1fr; }
+      .servicio { padding: 44px 48px 8px 0; }
+      .servicio + .servicio { border-top: 0; border-left: 1px solid var(--linea); padding-left: 48px; padding-right: 0; }
+    }
+
+    /* Paquetes */
+    .paquetes, #por-que { border-radius: 32px; }
+    .paquetes-rejilla { display: grid; gap: 16px; margin-top: 52px; }
+    .paquete {
+      border: 1.5px solid rgba(141, 153, 174, .4); border-radius: var(--radio);
+      padding: 32px 26px; display: flex; flex-direction: column;
+      transition: border-color .3s;
+    }
+    .paquete:hover { border-color: var(--gris); }
+    .paquete h3 { font-size: 1.75rem; }
+    .paquete ul { margin: 24px 0 32px; display: grid; gap: 13px; flex: 1; }
+    .paquete li { display: flex; gap: 12px; color: var(--crema-suave); }
+    .paquete li svg { width: 20px; height: 20px; flex: none; margin-top: 3px; color: var(--cobre); }
+    .paquete .btn { width: 100%; }
+    .paquete-destacado { background: var(--crema); color: var(--carbon); border-color: var(--cobre); box-shadow: 0 24px 48px -28px rgba(0, 0, 0, .6); }
+    .paquete-destacado:hover { border-color: var(--cobre); }
+    .paquete-destacado li { color: var(--carbon); }
+    .paquete-destacado li svg { color: var(--cobre-osc); }
+    .paquete-destacado :focus-visible { outline-color: var(--cobre-osc); }
+    .sello {
+      align-self: flex-start; margin-bottom: 18px;
+      background: var(--carbon); color: var(--crema);
+      font-size: .75rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      padding: 7px 12px; border-radius: 999px;
+    }
+    .paquetes-nota { margin-top: 28px; color: var(--gris); font-size: .9375rem; }
+    @media (min-width: 960px) {
+      .paquetes-rejilla { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
+      .paquete { padding: 36px 30px; }
+      .paquete-destacado { margin-top: -14px; margin-bottom: -14px; padding-top: 50px; padding-bottom: 50px; }
+    }
+
+    .precio { margin-top: 10px; font: 500 1.0625rem/1.3 var(--sans); color: var(--cobre); }
+    .precio span { font-weight: 400; color: var(--gris); }
+    .paquete-destacado .precio { color: var(--cobre-osc); }
+    .paquete-destacado .precio span { color: var(--texto-suave); }
+
+    /* Reseñas */
+    .resenas { padding-top: 104px; }
+    .linea-tiempo { display: grid; margin-top: 56px; position: relative; }
+    .linea-tiempo::before { content: ""; position: absolute; left: 21px; top: 22px; bottom: 22px; width: 1.5px; background: var(--cobre); opacity: .5; }
+    .momento { display: grid; grid-template-columns: 44px 1fr; gap: 20px; padding-bottom: 36px; position: relative; }
+    .momento:last-child { padding-bottom: 0; }
+    .momento-num {
+      width: 44px; height: 44px; border-radius: 50%;
+      display: grid; place-items: center;
+      background: var(--carbon); color: var(--crema); font: 500 1.125rem/1 var(--serif);
+      box-shadow: 0 0 0 6px var(--crema);
+    }
+    .momento:last-child .momento-num { background: var(--cobre); color: var(--carbon); }
+    .momento-cuando { font: italic 400 1.0625rem/1.2 var(--serif); color: var(--cobre-osc); padding-top: 2px; }
+    .momento p { margin-top: 8px; font-size: 1.125rem; max-width: 34ch; }
+    @media (min-width: 860px) {
+      .linea-tiempo { grid-template-columns: repeat(3, 1fr); gap: 32px; }
+      .linea-tiempo::before { left: 22px; right: 22px; top: 21px; bottom: auto; width: auto; height: 1.5px; }
+      .momento { grid-template-columns: 1fr; gap: 20px; padding-bottom: 0; }
+    }
+
+    .bloque { margin-top: 88px; padding-top: 56px; border-top: 1px solid var(--linea); display: grid; gap: 28px; }
+    .bloque h3 { font-size: clamp(1.75rem, 5vw, 2.375rem); max-width: 14ch; }
+    .bloque .intro { margin-top: 14px; font-size: 1.0625rem; }
+    .proceso { counter-reset: proc; }
+    .proceso li { counter-increment: proc; display: grid; grid-template-columns: 36px 1fr; gap: 12px; padding: 20px 0; border-bottom: 1px solid var(--linea); }
+    .proceso li:first-child { padding-top: 4px; }
+    .proceso li:last-child { border-bottom: 0; }
+    .proceso li::before { content: counter(proc) "."; font: italic 500 1.375rem/1.15 var(--serif); color: var(--cobre-osc); }
+    .ajustes { display: flex; flex-wrap: wrap; gap: 10px; }
+    .ajustes li { padding: 10px 16px; border-radius: 999px; border: 1.5px solid var(--carbon); font-size: .9375rem; font-weight: 500; }
+    .aviso {
+      margin-top: 22px; display: flex; gap: 12px; align-items: flex-start;
+      padding: 16px 18px; border-radius: 14px;
+      background: rgba(200, 119, 58, .13); font-size: .9375rem;
+    }
+    .aviso svg, .nota-etica svg { width: 20px; height: 20px; flex: none; margin-top: 2px; color: var(--cobre-osc); }
+    .nota-etica { margin-top: 64px; display: flex; gap: 12px; align-items: flex-start; font-size: .9375rem; color: var(--texto-suave); max-width: 60ch; }
+    @media (min-width: 760px) {
+      .bloque { grid-template-columns: 1fr 1.5fr; gap: 64px; }
+    }
+
+    /* Por qué elegirnos */
+    .razones { margin-top: 44px; max-width: 860px; border-top: 1.5px solid var(--crema); }
+    .razon { display: grid; gap: 6px; padding: 22px 0; border-bottom: 1px solid rgba(141, 153, 174, .3); }
+    .razon h3 { font-size: 1.375rem; }
+    .razon p { color: var(--gris); max-width: 46ch; }
+    @media (min-width: 760px) {
+      .razon { grid-template-columns: 17rem minmax(0, 1fr); gap: 32px; align-items: baseline; padding: 24px 0; }
+      .razon p { max-width: 44ch; }
+    }
+
+    /* Proyecto destacado */
+    .trabajo { margin-top: 52px; text-decoration: none; display: block; border-radius: var(--radio); overflow: hidden; border: 1.5px solid var(--linea); transition: border-color .3s, box-shadow .4s var(--salida), translate .4s var(--salida); }
+    .trabajo:hover { translate: 0 -4px; border-color: var(--cobre); box-shadow: 0 22px 40px -26px rgba(30, 35, 40, .5); }
+    .navegador { background: var(--carbon); padding-bottom: 10px; }
+    .navegador-barra { display: flex; align-items: center; gap: 6px; padding: 12px 14px; }
+    .navegador-barra i { width: 9px; height: 9px; border-radius: 50%; background: var(--gris); opacity: .55; }
+    .navegador-url { margin-left: 10px; flex: 1; font-size: .75rem; color: var(--crema-suave); background: rgba(141, 153, 174, .15); border-radius: 6px; padding: 5px 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .navegador img { width: calc(100% - 20px); margin: 0 10px; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; border-radius: 8px; height: auto; transition: scale .6s var(--salida); }
+    .trabajo:hover .navegador img { scale: 1.015; }
+    .trabajo-info { padding: 20px 22px 24px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .trabajo-info h3 { font-size: 1.3125rem; }
+    .trabajo-info p { font-size: .9375rem; color: var(--texto-suave); margin-top: 4px; }
+    .flecha { width: 42px; height: 42px; flex: none; border-radius: 50%; background: var(--cobre); color: var(--carbon); display: grid; place-items: center; transition: rotate .4s var(--salida), background .2s, color .2s; }
+    .flecha svg { width: 18px; height: 18px; }
+    .trabajo:hover .flecha { rotate: -45deg; background: var(--cobre-osc); color: var(--crema); }
+    @media (min-width: 760px) {
+      .trabajo { display: grid; grid-template-columns: 1.5fr 1fr; }
+      .trabajo-info { flex-direction: column; align-items: flex-start; justify-content: flex-end; padding: 36px; }
+      .trabajo-info h3 { font-size: 1.75rem; }
+    }
+
+    /* Preguntas frecuentes */
+    .preguntas { padding-top: 24px; }
+    .preguntas-grid { display: grid; gap: 40px; }
+    .faq { border-top: 1.5px solid var(--carbon); }
+    .faq details { border-bottom: 1px solid var(--linea); }
+    .faq summary {
+      list-style: none; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center; gap: 20px;
+      padding: 22px 0; font: 500 1.25rem/1.3 var(--serif); text-wrap: balance;
+      transition: color .2s;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary:hover { color: var(--cobre-osc); }
+    .faq summary::after {
+      content: ""; flex: none; width: 28px; height: 28px; border-radius: 50%;
+      border: 1.5px solid var(--linea);
+      background: linear-gradient(var(--carbon), var(--carbon)) center / 11px 1.5px no-repeat,
+                  linear-gradient(var(--carbon), var(--carbon)) center / 1.5px 11px no-repeat;
+      transition: rotate .3s var(--salida), background-color .2s, border-color .2s;
+    }
+    .faq details[open] summary::after { rotate: 45deg; background-color: var(--cobre); border-color: var(--cobre); }
+    .faq details p { padding: 0 44px 24px 0; color: var(--texto-suave); max-width: 62ch; }
+    @media (min-width: 860px) {
+      .preguntas-grid { grid-template-columns: 1fr 1.6fr; gap: 64px; align-items: start; }
+    }
+
+    /* Contacto */
+    .contacto { padding: 0 0 96px; }
+    .contacto-caja { border-radius: 32px; padding: 72px 20px; text-align: center; position: relative; overflow: hidden; }
+    .contacto-caja h2 { font-size: clamp(2.375rem, 9vw, 4rem); margin: 0 auto; max-width: 12ch; letter-spacing: -.02em; }
+    .contacto-caja h2 em { color: var(--cobre); font-style: italic; font-weight: 400; letter-spacing: .01em; }
+    .contacto-caja p { color: var(--gris); margin: 20px auto 36px; max-width: 40ch; font-size: 1.125rem; }
+    .contacto-caja .btn { width: 100%; max-width: 360px; position: relative; white-space: nowrap; padding: 0 20px; }
+
+    /* Footer */
+    .footer { border-top: 1px solid var(--linea); padding: 28px 0 92px; font-size: .9375rem; color: var(--texto-suave); }
+    .footer .contenedor { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between; }
+    .footer a:hover { color: var(--cobre-osc); }
+    @media (min-width: 760px) { .footer { padding-bottom: 28px; } }
+
+    /* Botón flotante (solo celular) */
+    .flotante {
+      position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom)); z-index: 40;
+      width: 60px; height: 60px; border-radius: 50%;
+      background: var(--cobre); color: var(--carbon);
+      display: grid; place-items: center;
+      box-shadow: 0 2px 4px rgba(30, 35, 40, .18), 0 12px 24px -8px rgba(30, 35, 40, .45);
+      transition: background .2s, color .2s, translate .4s var(--salida), opacity .3s;
+    }
+    .flotante:hover { background: var(--cobre-osc); color: var(--crema); }
+    .flotante svg { width: 28px; height: 28px; }
+    .flotante.oculto { translate: 0 90px; opacity: 0; pointer-events: none; }
+    @media (min-width: 760px) { .flotante { display: none; } }
+
+    /* Aparición suave al hacer scroll, por bloque */
+    .js .revelar { opacity: .001; translate: 0 24px; transition: opacity .5s var(--salida), translate .5s var(--salida); }
+    .js .revelar.visible { opacity: 1; translate: 0 0; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .js .revelar, .js .entra, .js .burbuja { opacity: 1; translate: none; scale: none; animation: none; transition: none; }
+      .js .subrayado path { stroke-dashoffset: 0; animation: none; }
+      .js .escribiendo { display: none; }
+      .telefono { rotate: none; }
+    }
+  </style>
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <!-- Íconos reutilizables -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2Zm0 18.15a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.54-3.7 8.24-8.25 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.29Z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.2 4.2L19 7"/></symbol>
+    <symbol id="i-flecha" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.6v.1"/></g></symbol>
+    <symbol id="i-escudo" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 3 4.5 6v5.5c0 4.6 3.2 8.4 7.5 9.5 4.3-1.1 7.5-4.9 7.5-9.5V6L12 3Z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m8.8 12 2.2 2.2 4.3-4.4"/></symbol>
+    <symbol id="i-estrella" viewBox="0 0 24 24"><path fill="currentColor" d="m12 3.5 2.6 5.3 5.8.8-4.2 4.1 1 5.8L12 16.8l-5.2 2.7 1-5.8-4.2-4.1 5.8-.8L12 3.5Z"/></symbol>
+  </svg>
+
+  <header class="header">
+    <nav class="contenedor nav" aria-label="Principal">
+      <a class="marca" href="#inicio" aria-label="Villawolves Studio, inicio">
+        <img class="marca-logo" src="favicon.svg" alt="" width="32" height="32">
+        Villawolves Studio
+      </a>
+      <div class="nav-links">
+        <a href="#servicios">Servicios</a>
+        <a href="#paquetes">Paquetes</a>
+        <a href="#resenas">Reseñas</a>
+        <a href="#por-que">Por qué nosotros</a>
+        <a href="#trabajos">Trabajos</a>
+        <a href="#contacto">Contacto</a>
+        <a class="btn nav-btn" href="https://wa.me/528713941918?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20una%20p%C3%A1gina%20web%20o%20las%20rese%C3%B1as%20de%20Google" target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp
+        </a>
+      </div>
+      <button class="hamburguesa" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-movil"><span></span></button>
+    </nav>
+  </header>
+
+  <div class="menu-fondo" aria-hidden="true"></div>
+  <div class="menu-movil" id="menu-movil">
+    <a href="#servicios">Servicios</a>
+    <a href="#paquetes">Paquetes</a>
+    <a href="#resenas">Reseñas</a>
+    <a href="#por-que">Por qué nosotros</a>
+    <a href="#trabajos">Trabajos</a>
+    <a href="#contacto">Contacto</a>
+    <a class="btn btn-grande" href="https://wa.me/528713941918?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20una%20p%C3%A1gina%20web%20o%20las%20rese%C3%B1as%20de%20Google" target="_blank" rel="noopener">
+      <svg aria-hidden="true"><use href="#i-wa"/></svg>Escríbenos por WhatsApp
+    </a>
+  </div>
+
+  <main id="inicio">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="contenedor hero-grid">
+        <div>
+          <h1 class="entra">Páginas web que venden, <em>y reseñas que llegan <span class="subrayar">solas.<svg class="subrayado" viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 8.5C48 3.5 104 2 197 5.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></span></em></h1>
+          <p class="intro entra" style="--d:.15s">Hacemos la página web de tu negocio, y hacemos que tus clientes reciban un mensaje por WhatsApp después de cada servicio para dejarte su reseña en Google.</p>
+          <div class="hero-acciones entra" style="--d:.3s">
+            <a class="btn btn-grande" href="https://wa.me/528713941918?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20una%20p%C3%A1gina%20web%20o%20las%20rese%C3%B1as%20de%20Google" target="_blank" rel="noopener">
+              <svg aria-hidden="true"><use href="#i-wa"/></svg>Escríbenos por WhatsApp
+            </a>
+            <a class="btn btn-grande btn-borde" href="#paquetes">Ver paquetes</a>
+          </div>
+        </div>
+
+        <figure class="entra" style="margin:0;--d:.35s">
+          <div class="telefono">
+            <div class="pantalla">
+              <div class="chat-top">
+                <div class="chat-avatar" aria-hidden="true">T</div>
+                <div>Tu negocio<small>Cuenta de empresa</small></div>
+              </div>
+              <div class="chat">
+                <div class="burbuja">Hola, Ana. <b>¡Gracias por visitarnos hoy!</b> Esperamos que todo haya salido como querías.<span class="burbuja-hora">5:42 p. m.</span></div>
+                <div class="burbuja">Si tienes un minuto, nos ayudaría mucho tu reseña en Google.
+                  <span class="burbuja-link"><svg aria-hidden="true"><use href="#i-estrella"/></svg>Dejar mi reseña</span>
+                  <span class="burbuja-hora">5:43 p. m.</span>
+                </div>
+                <span class="escribiendo" aria-hidden="true"><i></i><i></i><i></i></span>
+              </div>
+            </div>
+          </div>
+          <figcaption class="chat-pie" style="margin-top:18px">Ejemplo de mensaje. El texto se adapta a tu negocio.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Servicios -->
+    <section class="seccion" id="servicios" style="padding-top:16px">
+      <div class="contenedor">
+        <h2 class="titulo revelar">Dos cosas, bien hechas.</h2>
+        <div class="servicios-rejilla">
+          <article class="servicio revelar">
+            <svg class="servicio-icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2.5"/><path d="M3 8.5h18M8 21h8"/></svg>
+            <h3>Páginas web a la medida</h3>
+            <p>Diseño propio para tu negocio, que se ve bien en celular y queda lista para que te encuentren en Google.</p>
+          </article>
+          <article class="servicio revelar">
+            <svg class="servicio-icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.5 2.6 5.3 5.8.8-4.2 4.1 1 5.8L12 16.8l-5.2 2.7 1-5.8-4.2-4.1 5.8-.8L12 3.5Z"/></svg>
+            <h3>Reseñas de Google en automático</h3>
+            <p>Después de cada servicio, tu cliente recibe mensajes por WhatsApp que le piden una reseña. Tú no haces nada extra.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Paquetes -->
+    <section class="seccion paquetes oscuro" id="paquetes">
+      <div class="contenedor">
+        <header class="revelar">
+          <h2 class="titulo">Elige lo que necesita tu negocio.</h2>
+          <p class="intro">Cotizamos según lo que necesitas. Escríbenos y te respondemos por WhatsApp.</p>
+        </header>
+
+        <!-- Precios: escribe la cifra y quita el atributo "hidden" de cada <p class="precio"> -->
+        <div class="paquetes-rejilla">
+          <article class="paquete revelar">
+            <h3>Solo página web</h3>
+            <p class="precio" hidden>Desde $0,000 MXN <span>pago único</span></p>
+            <ul>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Diseño hecho para tu negocio</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Se ve bien en celular</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Botón de WhatsApp para que te escriban</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Publicada y lista para que te encuentren en Google</li>
+            </ul>
+            <a class="btn btn-borde" href="https://wa.me/528713941918?text=Hola%2C%20quiero%20cotizar%20el%20paquete%20de%20p%C3%A1gina%20web" target="_blank" rel="noopener">Pedir cotización</a>
+          </article>
+
+          <article class="paquete revelar">
+            <h3>Solo reseñas</h3>
+            <p class="precio" hidden>Desde $000 MXN <span>al mes</span></p>
+            <ul>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Mensaje de agradecimiento después del servicio</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Mensaje pidiendo la reseña con tu link de Google</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Recordatorio amable si no la dejó</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Mensajes con el tono de tu negocio</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Nosotros configuramos todo</li>
+            </ul>
+            <a class="btn btn-borde" href="https://wa.me/528713941918?text=Hola%2C%20quiero%20cotizar%20el%20paquete%20de%20rese%C3%B1as%20de%20Google" target="_blank" rel="noopener">Pedir cotización</a>
+          </article>
+
+          <article class="paquete paquete-destacado revelar">
+            <span class="sello">El más completo</span>
+            <h3>Página web + reseñas</h3>
+            <p class="precio" hidden>Desde $0,000 MXN <span>+ $000 al mes</span></p>
+            <ul>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Todo lo del paquete Solo página web</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Todo lo del paquete Solo reseñas</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Hecho junto y con el mismo estilo</li>
+            </ul>
+            <a class="btn" href="https://wa.me/528713941918?text=Hola%2C%20quiero%20cotizar%20el%20paquete%20de%20p%C3%A1gina%20web%20y%20rese%C3%B1as" target="_blank" rel="noopener">Pedir cotización</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reseñas -->
+    <section class="seccion resenas" id="resenas">
+      <div class="contenedor">
+        <header class="revelar">
+          <h2 class="titulo">Cómo funcionan las reseñas</h2>
+          <p class="intro">Tu único trabajo es anotar a tu cliente. Lo demás pasa solo.</p>
+        </header>
+
+        <ol class="linea-tiempo revelar">
+          <li class="momento">
+            <span class="momento-num">1</span>
+            <div><span class="momento-cuando">Al terminar el servicio</span><p>Anotas el nombre y teléfono de tu cliente.</p></div>
+          </li>
+          <li class="momento">
+            <span class="momento-num">2</span>
+            <div><span class="momento-cuando">Poco después</span><p>Recibe un mensaje de agradecimiento y la invitación a dejar su reseña.</p></div>
+          </li>
+          <li class="momento">
+            <span class="momento-num">3</span>
+            <div><span class="momento-cuando">Si no la dejó</span><p>Recibe un recordatorio amable.</p></div>
+          </li>
+        </ol>
+
+        <div class="bloque revelar">
+          <h3>Cómo lo hacemos</h3>
+          <ol class="proceso">
+            <li><p>Nos das el nombre de tu negocio y tu link de reseñas de Google.</p></li>
+            <li><p>Configuramos un número de WhatsApp para tu negocio, con la plataforma oficial de WhatsApp Business.</p></li>
+            <li><p>Escribimos los mensajes con el estilo de tu negocio. WhatsApp los revisa y aprueba antes de usarlos; esto puede tardar desde minutos hasta un par de días.</p></li>
+            <li><p>Cuando atiendes a un cliente, anotas su nombre y teléfono, y el sistema manda los mensajes en los tiempos acordados.</p></li>
+          </ol>
+        </div>
+
+        <div class="bloque revelar">
+          <div>
+            <h3>Los mensajes son tuyos</h3>
+            <p class="intro">Los adaptamos a cómo habla tu negocio. Tú decides:</p>
+          </div>
+          <div>
+            <ul class="ajustes">
+              <li>El tono: más formal o más relajado</li>
+              <li>Quién firma el mensaje</li>
+              <li>El texto</li>
+              <li>Cuántos mensajes se mandan</li>
+              <li>Cuánto tiempo pasa entre uno y otro</li>
+            </ul>
+            <p class="aviso"><svg aria-hidden="true"><use href="#i-info"/></svg>Si cambias el texto de un mensaje, WhatsApp tiene que aprobarlo de nuevo antes de usarlo.</p>
+          </div>
+        </div>
+
+        <p class="nota-etica revelar"><svg aria-hidden="true"><use href="#i-escudo"/></svg>Solo escribimos a clientes que te dieron su número, y nunca ofrecemos regalos a cambio de reseñas.</p>
+      </div>
+    </section>
+
+    <!-- Por qué nosotros -->
+    <section class="seccion oscuro" id="por-que">
+      <div class="contenedor">
+        <h2 class="titulo revelar">Por qué elegirnos</h2>
+        <div class="razones revelar">
+          <div class="razon"><h3>Hecho a la medida</h3><p>Nada de plantillas genéricas: cada página se diseña para tu negocio.</p></div>
+          <div class="razon"><h3>Trato directo</h3><p>Hablas con quien hace el trabajo, sin intermediarios.</p></div>
+          <div class="razon"><h3>WhatsApp oficial</h3><p>Usamos las herramientas oficiales de WhatsApp Business, no atajos que te pueden bloquear el número.</p></div>
+          <div class="razon"><h3>Reglas de Google al pie de la letra</h3><p>No ofrecemos regalos por reseñas, ni filtramos solo a los clientes contentos.</p></div>
+          <div class="razon"><h3>Todo en un solo lugar</h3><p>Página web y reseñas con el mismo estilo y un solo contacto.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trabajos -->
+    <section class="seccion" id="trabajos">
+      <div class="contenedor">
+        <div class="revelar">
+          <h2 class="titulo">Proyecto Destacado</h2>
+          <a class="trabajo" href="https://monicamartinezartgallery.com" target="_blank" rel="noopener">
+            <div class="navegador">
+              <div class="navegador-barra" aria-hidden="true"><i></i><i></i><i></i><span class="navegador-url">monicamartinezartgallery.com</span></div>
+              <img src="trabajos/monica-martinez.jpg" alt="Página de inicio de Monica Martinez Art Gallery, con obras de sus artistas" width="800" height="500" loading="lazy" decoding="async">
+            </div>
+            <div class="trabajo-info">
+              <div>
+                <h3>Monica Martinez Art Gallery</h3>
+                <p>Sitio de galería de arte, hecho por Villawolves Studio</p>
+              </div>
+              <span class="flecha" aria-hidden="true"><svg><use href="#i-flecha"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Preguntas frecuentes -->
+    <section class="seccion preguntas" id="preguntas">
+      <div class="contenedor preguntas-grid">
+        <h2 class="titulo revelar">Preguntas frecuentes</h2>
+        <div class="faq revelar">
+          <details>
+            <summary>¿Necesito instalar alguna aplicación?</summary>
+            <p>No. Solo necesitamos tu link de reseñas de Google. Cuando terminas un servicio, anotas el nombre y teléfono de tu cliente, y el sistema le manda los mensajes por WhatsApp.</p>
+          </details>
+          <details>
+            <summary>¿Qué pasa si un cliente deja una mala reseña?</summary>
+            <p>Todos tus clientes reciben la misma invitación, sin filtros, porque así lo piden las reglas de Google. Si algo salió mal, en el mensaje también pueden escribirte por WhatsApp para que lo resuelvas, y siempre puedes responder su reseña en Google.</p>
+          </details>
+          <details>
+            <summary>¿Cómo se maneja la privacidad y el consentimiento de los números?</summary>
+            <p>Tú le pides el número a tu cliente durante el servicio, con su permiso, de palabra o por escrito, y le avisas que le llegará un mensaje por WhatsApp. Así se cumplen las políticas de mensajes de negocios de WhatsApp. Usamos esos datos solo para mandar los mensajes; puedes leer más en el <a href="aviso-de-privacidad.html">Aviso de privacidad</a>.</p>
+          </details>
+          <details>
+            <summary>¿Es una suscripción o un pago único?</summary>
+            <p>La página web se paga una sola vez. Las reseñas por WhatsApp son una mensualidad. Si contratas los dos, pagas la página una vez y la mensualidad de las reseñas.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="contacto" id="contacto">
+      <div class="contenedor">
+        <div class="contacto-caja oscuro revelar">
+          <h2>Cuéntanos de <em>tu negocio.</em></h2>
+          <p>Escríbenos por WhatsApp y platicamos qué necesitas: página web, reseñas o las dos.</p>
+          <a class="btn btn-grande" href="https://wa.me/528713941918?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20una%20p%C3%A1gina%20web%20o%20las%20rese%C3%B1as%20de%20Google" target="_blank" rel="noopener">
+            <svg aria-hidden="true"><use href="#i-wa"/></svg>Escríbenos por WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="contenedor">
+      <span>© 2026 Villawolves Studio</span>
+      <a href="aviso-de-privacidad.html">Aviso de privacidad</a>
+    </div>
+  </footer>
+
+  <a class="flotante" href="https://wa.me/528713941918?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20una%20p%C3%A1gina%20web%20o%20las%20rese%C3%B1as%20de%20Google" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+    <svg aria-hidden="true"><use href="#i-wa"/></svg>
+  </a>
+
+  <script>
+    // Menú de celular
+    const boton = document.querySelector('.hamburguesa');
+    const menu = document.getElementById('menu-movil');
+    const fondo = document.querySelector('.menu-fondo');
+    const fijarMenu = abierto => {
+      menu.classList.toggle('abierto', abierto);
+      fondo.classList.toggle('abierto', abierto);
+      boton.setAttribute('aria-expanded', abierto);
+      boton.setAttribute('aria-label', abierto ? 'Cerrar menú' : 'Abrir menú');
+      document.body.style.overflow = abierto ? 'hidden' : '';
+    };
+    boton.addEventListener('click', () => fijarMenu(!menu.classList.contains('abierto')));
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => fijarMenu(false)));
+    fondo.addEventListener('click', () => fijarMenu(false));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.contains('abierto')) { fijarMenu(false); boton.focus(); } });
+    matchMedia('(min-width: 960px)').addEventListener('change', e => { if (e.matches) fijarMenu(false); });
+
+    // Línea bajo el menú al bajar
+    const header = document.querySelector('.header');
+    const alBajar = () => header.classList.toggle('con-sombra', scrollY > 8);
+    addEventListener('scroll', alBajar, { passive: true }); alBajar();
+
+    // El botón flotante se esconde cuando ya se ve el botón grande de contacto
+    const flotante = document.querySelector('.flotante');
+    const elementos = document.querySelectorAll('.revelar');
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(([en]) => flotante.classList.toggle('oculto', en.isIntersecting))
+        .observe(document.querySelector('.contacto-caja .btn'));
+
+      const io = new IntersectionObserver(entradas => {
+        entradas.forEach(en => { if (en.isIntersecting) { en.target.classList.add('visible'); io.unobserve(en.target); } });
+      }, { threshold: .1, rootMargin: '0px 0px -8% 0px' });
+      elementos.forEach(el => io.observe(el));
+    } else {
+      elementos.forEach(el => el.classList.add('visible'));
+    }
+  </script>
+</body>
+</html>
